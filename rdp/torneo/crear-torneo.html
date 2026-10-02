@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-torneo.css">
+    <title>Torneo</title>
+</head>
+
+<body>
+
+    <div class="contenedor-inicio">
+        <a class="a-inicio" href="../inicion/inicio.html">Volver a inicio</a>
+    </div>
+
+    <div class="cards">
+
+    <div class="card" id="tarjetaLiga">
+        <span class="texto">Liga</span>
+        <img src="/imagenes/trofeo8.png">
+    </div>
+
+    <div class="card" id="tarjetaCopa">
+        <span class="texto">Copa</span>
+        <img src="/imagenes/trofeo.png">
+    </div>
+
+    </div>
+
+    <!-- CONFIGURACION LIGA -->
+
+    <div id="opcionesLiga" style="display:none;">
+
+        <h3>Configuración Liga</h3>
+
+        <label>Cantidad de equipos:</label>
+        <select>
+        <option>4</option>
+        <option selected>8</option>
+        <option>10</option>
+        </select>
+
+        <label>Formato:</label>
+        <select>
+        <option>Ida</option>
+        <option>Ida y vuelta</option>
+        </select>
+
+    </div>
+
+    <!-- CONFIGURACION COPA -->
+
+    <div id="opcionesCopa" style="display:none;">
+
+    <h3>Configuración Copa</h3>
+
+    <label>Cantidad de equipos:</label>
+    <select>
+    <option>4</option>
+    <option selected>8</option>
+    <option>16</option>
+    </select>
+
+    <label>Formato:</label>
+    <select>
+    <option>Partido único</option>
+    <option>Ida y vuelta</option>
+    </select>
+
+    <label>Penales si empatan:</label>
+    <select>
+    <option>Sí</option>
+    <option>No</option>
+    </select>
+
+    </div>
+
+
+    <div id="configuracion"></div>
+
+    <script src="torneo-script.js"></script>
+
+</body>
+</html>

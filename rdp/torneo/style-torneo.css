@@ -1,0 +1,180 @@
+:root {
+    --honeydew: #f1ffe7;
+    --honeydew2: #f1ffe7bb;
+    --light-green: #a9fdac;
+    --light-green2: #a9fdacdf;
+    --emerald: #44cf6c;
+    --emerald2: #53e77dd1;
+    --seagrass: #32a287;
+    --sombra: rgba(0, 0, 0, 0.4);
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background-image: url("../imagenes/fondo.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    filter: blur(5px);
+    z-index: -1;
+    transform: scale(1.1);
+}
+
+a {
+    color: #111;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+.cards {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    /* esto las centra horizontalmente */
+    margin-top: 30px;
+}
+
+.card {
+    width: 200px;
+    /* tamaño del contenedor */
+    height: 190px;
+    /* opcional */
+    border: 1px solid black;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /*  esto cambia todo */
+    align-items: center;
+    /* centra horizontal */
+    gap: 5px;
+    /* separa texto e imagen */
+    text-decoration-line: none;
+    transition: transform 0.3s ease;
+    background-color: var(--honeydew2);
+}
+
+.card:hover {
+    color: #111;
+    transform: scale(1.2);
+    background-color: var(--emerald);
+}
+
+
+
+
+.card img {
+    width: 120px;
+    /* imagen más chica */
+    display: block;
+}
+
+.texto {
+    text-shadow: 1px 1px 2px #fff;
+    color: #111;
+    font-size: 20px;
+}
+
+.card .texto {
+    margin-top: 10px;
+
+}
+
+
+
+.menu{
+    position: absolute;
+    top: 100%;
+
+    left: 50;
+    
+
+    width: 100%;
+
+    margin-top: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
+    animation: aparecer 0.3s ease;
+}
+
+.menu button {
+    border: none;
+    padding: 8px;
+    border-radius: 6px;
+    background-color: var(--light-green);
+    cursor: pointer;
+}
+
+.menu button:hover {
+    background-color: var(--emerald);
+}
+
+/* Definimos una animación llamada "aparecer" */
+@keyframes aparecer {
+
+    /* Estado inicial de la animación (0%) */
+    from {
+        /* Totalmente invisible */
+        opacity: 0;
+        /* Posicionado 10px más arriba de su lugar original */
+        transform: translateY(-10px);
+    }
+
+    /* Estado final de la animación (100%) */
+    to {
+        /* Totalmente visible */
+        opacity: 1;
+        /* Vuelve a su posición normal */
+        transform: translateY(0);
+    }
+}
+
+.contenedor-inicio {
+    margin-top: 15px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    /* 🔥 centra horizontal */
+    gap: 20px;
+
+
+}
+
+.a-inicio {
+    text-transform: uppercase;
+    display: inline-flex;
+    /* flex pero sigue comportándose como inline */
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 20px #111;
+    width: 200px;
+    padding: 12px 0;
+
+    background-color: var(--light-green2);
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.a-inicio:hover {
+    background: var(--seagrass);
+}
