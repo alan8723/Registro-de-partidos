@@ -1,0 +1,279 @@
+:root {
+    --honeydew: #f1ffe7;
+    --honeydew2: #f1ffe7bb;
+    --light-green: #a9fdac;
+    --light-green2: #a9fdacdf;
+    --emerald: #44cf6c;
+    --emerald2: #53e77dd1;
+    --seagrass: #32a287;
+    --fondo-oscuro: #111;
+    --sombra: rgba(0, 0, 0, 0.4);
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+}
+
+/* --- ESTILOS DEL NAVBAR --- */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px;
+    background-color: var(--honeydew2);
+    /* Solución al texto encimado: difumina el fondo al scrollear */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-logo .logo-img {
+    height: 50px;
+    display: block;
+}
+
+/* Contenedor central y derecho (PC) */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: space-between;
+    margin-left: 40px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: var(--fondo-oscuro);
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--seagrass);
+}
+
+.nav-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-nav {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: capitalize;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-login {
+    background-color: transparent;
+    border: 2px solid var(--emerald);
+    color: var(--fondo-oscuro);
+}
+
+.btn-login:hover {
+    background-color: var(--emerald);
+    color: white;
+}
+
+.btn-register {
+    background-color: var(--emerald);
+    border: 2px solid var(--emerald);
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-register:hover {
+    background-color: var(--seagrass);
+    border-color: var(--seagrass);
+    transform: translateY(-2px);
+}
+
+/* --- MENÚ HAMBURGUESA --- */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
+}
+
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--fondo-oscuro);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* --- DISEÑO RESPONSIVE (Móviles) --- */
+@media (max-width: 850px) {
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        /* Oculto por defecto fuera de la pantalla */
+        width: 250px;
+        height: 100vh;
+        background-color: var(--honeydew);
+        box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 0;
+        gap: 30px;
+        transition: right 0.3s ease;
+    }
+
+    /* Clase activa que agregaremos con JS */
+    .nav-menu.activo {
+        right: 0;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .nav-actions {
+        flex-direction: column;
+        width: 80%;
+    }
+
+    .btn-nav {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Animación del ícono a una cruz "X" */
+    .hamburger-menu.activo span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger-menu.activo span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-menu.activo span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.tarjeta {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.controles-torneo {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos de las Llaves */
+.llaves-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    overflow-x: auto;
+    /* Para que se pueda scrollear si hay 16 equipos */
+    padding-bottom: 20px;
+}
+
+.ronda-columna {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* Separa los partidos uniformemente */
+    min-width: 220px;
+}
+
+.ronda-titulo {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.partido-box {
+    background: white;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.equipo-fila {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+.input-nombre {
+    width: 120px;
+    padding: 4px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.input-goles {
+    width: 40px;
+    padding: 4px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.btn-avanzar {
+    width: 100%;
+    background-color: #28a745;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.btn-avanzar:hover {
+    background-color: #218838;
+}

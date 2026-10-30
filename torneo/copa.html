@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copa</title>
+    <link rel="stylesheet" href="style-copa.css">
+
+</head>
+
+<body>
+    <!-- COMIENZO DEL NAVBAR REUTILIZABLE -->
+    <header class="navbar">
+        <!-- Logo -->
+        <div class="nav-logo">
+            <a href="../index.html">
+                <img class="logo-img" src="../imagenes/logo.png" alt="Torneo Fantasía">
+            </a>
+        </div>
+
+        <!-- Botón Hamburguesa (Oculto en PC) -->
+        <button class="hamburger-menu" id="hamburger-menu" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Contenedor del menú desplegable -->
+        <div class="nav-menu" id="nav-menu">
+            <nav class="nav-links">
+                <a href="../index.html">Inicio</a>
+                <a href="../torneo/crear-torneo.html">Crear Torneo</a>
+                <a href="../his/historial.html">Historial</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="../login/login.html" class="btn-nav btn-login">Iniciar Sesión</a>
+                <a href="../login/register.html" class="btn-nav btn-register">Registrarse</a>
+            </div>
+        </div>
+    </header>
+    <!-- FIN DEL NAVBAR REUTILIZABLE -->
+
+    <div class="contenedor">
+        <h1>Torneo - Llaves</h1>
+
+        <div class="tarjeta controles-torneo">
+            <label for="num-equipos">Cantidad de equipos:</label>
+            <select id="num-equipos">
+                <option value="4">4 Equipos (Semifinales)</option>
+                <option value="8" selected>8 Equipos (Cuartos de final)</option>
+                <option value="16">16 Equipos (Octavos de final)</option>
+            </select>
+            <button id="btn-crear">Crear Llaves</button>
+        </div>
+
+        <!-- Contenedor donde se dibujará el fixture -->
+        <div id="contenedor-llaves" class="llaves-container">
+            <!-- Se inyecta por JS -->
+        </div>
+    </div>
+</body>
+<script>
+    const btnHamburguesa = document.getElementById('hamburger-menu');
+    const navMenu = document.getElementById('nav-menu');
+
+    btnHamburguesa.addEventListener('click', () => {
+        // Intercambia la clase 'activo' cada vez que se hace click
+        btnHamburguesa.classList.toggle('activo');
+        navMenu.classList.toggle('activo');
+    });
+</script>
+<script src="copa.js"></script>
+
+</html>

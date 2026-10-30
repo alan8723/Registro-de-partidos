@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-torneo.css">
+    <title>Torneo</title>
+    <link rel="icon" href="../imagenes/logo.png" type="image/png">
+</head>
+
+<body>
+
+    <!-- COMIENZO DEL NAVBAR REUTILIZABLE -->
+    <header class="navbar">
+        <!-- Logo -->
+        <div class="nav-logo">
+            <a href="index.html">
+                <img class="logo-img" src="../imagenes/logo.png" alt="Torneo Fantasía">
+            </a>
+        </div>
+
+        <!-- Botón Hamburguesa (Oculto en PC) -->
+        <button class="hamburger-menu" id="hamburger-menu" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Contenedor del menú desplegable -->
+        <div class="nav-menu" id="nav-menu">
+            <nav class="nav-links">
+                <a href="../index.html">Inicio</a>
+                <a href="#">Crear Torneo</a>
+                <a href="../his/historial.html">Historial</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="../login/login.html" class="btn-nav btn-login">Iniciar Sesión</a>
+                <a href="../login/register.html" class="btn-nav btn-register">Registrarse</a>
+            </div>
+        </div>
+    </header>
+    <!-- FIN DEL NAVBAR REUTILIZABLE -->
+
+    <div class="contenedor-inicio">
+        <a class="a-inicio" href="../index.html">Volver a inicio</a>
+    </div>
+
+    <div class="cards">
+
+        <div class="card" id="tarjetaLiga">
+            <span class="texto">Liga</span>
+            <img src="../imagenes/trofeo8.png">
+        </div>
+
+        <div class="card" id="tarjetaCopa">
+            <a href="copa.html">
+                <span class="texto">Copa</span>
+                <img src="../imagenes/trofeo.png">
+            </a>
+        </div>
+
+    </div>
+
+    <!-- CONFIGURACION LIGA -->
+
+    <div id="opcionesLiga" style="display:none;">
+
+        <h3>Configuración Liga</h3>
+
+        <label>Cantidad de equipos:</label>
+        <select>
+            <option>4</option>
+            <option selected>8</option>
+            <option>10</option>
+        </select>
+
+        <label>Formato:</label>
+        <select>
+            <option>Ida</option>
+            <option>Ida y vuelta</option>
+        </select>
+
+    </div>
+
+    <!-- CONFIGURACION COPA -->
+
+    <div id="opcionesCopa" style="display:none;">
+
+        <h3>Configuración Copa</h3>
+
+        <label>Cantidad de equipos:</label>
+        <select>
+            <option>4</option>
+            <option selected>8</option>
+            <option>16</option>
+        </select>
+
+        <label>Formato:</label>
+        <select>
+            <option>Partido único</option>
+            <option>Ida y vuelta</option>
+        </select>
+
+        <label>Penales si empatan:</label>
+        <select>
+            <option>Sí</option>
+            <option>No</option>
+        </select>
+
+    </div>
+
+
+    <div id="configuracion"></div>
+
+    <script src="torneo-script.js"></script>
+
+</body>
+<script>
+    const btnHamburguesa = document.getElementById('hamburger-menu');
+    const navMenu = document.getElementById('nav-menu');
+
+    btnHamburguesa.addEventListener('click', () => {
+        // Intercambia la clase 'activo' cada vez que se hace click
+        btnHamburguesa.classList.toggle('activo');
+        navMenu.classList.toggle('activo');
+    });
+</script>
+
+</html>

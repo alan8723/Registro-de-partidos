@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partido Rápido</title>
+    <link rel="stylesheet" href="style-partido-rapido.css">
+</head>
+
+<body>
+    <!-- COMIENZO DEL NAVBAR REUTILIZABLE -->
+    <header class="navbar">
+        <!-- Logo -->
+        <div class="nav-logo">
+            <a href="../index.html">
+                <img class="logo-img" src="../imagenes/logo.png" alt="Torneo Fantasía">
+            </a>
+        </div>
+
+        <!-- Botón Hamburguesa (Oculto en PC) -->
+        <button class="hamburger-menu" id="hamburger-menu" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Contenedor del menú desplegable -->
+        <div class="nav-menu" id="nav-menu">
+            <nav class="nav-links">
+                <a href="../index.html">Inicio</a>
+                <a href="../torneo/crear-torneo.html">Crear Torneo</a>
+                <a href="../his/historial.html">Historial</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="../login/login.html" class="btn-nav btn-login">Iniciar Sesión</a>
+                <a href="../login/register.html" class="btn-nav btn-register">Registrarse</a>
+            </div>
+        </div>
+    </header>
+    <!-- FIN DEL NAVBAR REUTILIZABLE -->
+
+    <div class="contenedor">
+        <h1>Torneo Fantasía</h1>
+
+        <!-- Tarjeta Alta (Create) -->
+        <div class="tarjeta">
+            <h2>Registrar Partido</h2>
+            <form id="formulario-partido">
+                <input type="text" id="local" placeholder="Local (ej: Dragones)" required />
+                <input type="number" id="goles-local" placeholder="Goles" min="0" required />
+
+                <span> VS </span>
+
+                <input type="number" id="goles-visitante" placeholder="Goles" min="0" required />
+                <input type="text" id="visitante" placeholder="Visitante (ej: Orcos)" required />
+
+                <button type="submit">Guardar Resultado</button>
+            </form>
+        </div>
+
+        <!-- Tarjeta de Estadísticas -->
+        <div class="tarjeta">
+            <h2>Estadísticas por Equipo</h2>
+            <div class="controles-estadisticas">
+                <select id="selector-equipo">
+                    <option value="">Selecciona un equipo...</option>
+                    <option value="Dragones">Dragones</option>
+                    <option value="Orcos FC">Orcos FC</option>
+                    <option value="Ninjas">Ninjas</option>
+                    <option value="Piratas">Piratas</option>
+                </select>
+                <button id="btn-calcular-stats">Calcular</button>
+            </div>
+
+            <div id="resultados-estadisticas" class="resultados-caja">
+
+            </div>
+        </div>
+
+        <!-- Tarjeta Lectura y Baja (Read & Delete) -->
+        <div class="tarjeta">
+            <h2>Resultados</h2>
+            <ul id="lista-partidos">
+                <!-- Los partidos se renderizarán acá desde JavaScript -->
+            </ul>
+        </div>
+    </div>
+    <script>
+        const btnHamburguesa = document.getElementById('hamburger-menu');
+        const navMenu = document.getElementById('nav-menu');
+
+        btnHamburguesa.addEventListener('click', () => {
+            // Intercambia la clase 'activo' cada vez que se hace click
+            btnHamburguesa.classList.toggle('activo');
+            navMenu.classList.toggle('activo');
+        });
+    </script>
+    <script src="partido-rapido.js"></script>
+</body>
+
+</html>
